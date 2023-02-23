@@ -13,4 +13,3 @@ class TestNode(unittest.TestCase):
         self.assertEqual(self.n2.data, 'a')
         self.assertEqual(self.n1, self.n1)
         self.assertEqual(self.n2.next_node, self.n1)
-
