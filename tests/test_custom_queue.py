@@ -4,10 +4,11 @@ from Datastruct.custom_queue import Queue
 
 
 class TestQueue(unittest.TestCase):
-    queue = Queue()
-    queue.enqueue('data1')
-    queue.enqueue('data2')
-    queue.enqueue('data3')
+    def setUp(self):
+        self.queue = Queue()
+        self.queue.enqueue('data1')
+        self.queue.enqueue('data2')
+        self.queue.enqueue('data3')
 
     def test_enqueue(self):
         self.assertEqual(self.queue.head.data, 'data1')
@@ -16,3 +17,9 @@ class TestQueue(unittest.TestCase):
         self.assertEqual(self.queue.tail.next_node, None)
         with self.assertRaises(AttributeError):
             Node(self.queue.tail.next_node.data)
+
+    def test_dequeue(self):
+        self.assertEqual(self.queue.dequeue(), 'data1')
+        self.assertEqual(self.queue.dequeue(), 'data2')
+        self.assertEqual(self.queue.dequeue(), 'data3')
+        self.assertEqual(self.queue.dequeue(), None)
