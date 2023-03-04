@@ -1,4 +1,4 @@
-from Datastruct.node import Node
+from datastruct.node import Node
 
 
 class Queue:
